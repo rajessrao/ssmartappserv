@@ -1,2 +1,3 @@
-# ssmartappserv
-S Smart App service
+# ssmartappserv :: to maintain data
+
+Will update accordingly......
