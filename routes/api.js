@@ -20,16 +20,16 @@ var swaggerJSDoc = require('swagger-jsdoc');
 var options = {
 	swaggerDefinition: {
 		info: {
-			title: 'ExpressJS Boilerplate API',
-			description: 'Boilerplate API for ExpressJS based microservices',
+			title: 'SSmart App Service API',
+			description: 'SSmart App service API is ExpressJS based microservices',
 			version: '0.0.1',
 			contact: {
-				email: 'administrator@ashishdesai.com',
-				name: 'Mr. Doomsbuster'
+				email: '',
+				name: ''
 			},
 			license: {
-				name: 'Do what the fuck you want to (WTFPL)',
-				url: 'https://ashishdesai.com/license.txt'
+				name: '',
+				url: ''
 			}
 		},
 		schemes: [
@@ -49,7 +49,7 @@ var options = {
 		}],
 		externalDocs: {
 			description: 'More information',
-			url: 'https://mrdoomsbuster.com'
+			url: ''
 		}
 	},
 	apis: ['routes/api.js', 'routes/posts.js', 'routes/repo/repo.js', 'routes/repo/images.js'],
