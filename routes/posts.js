@@ -58,11 +58,7 @@ router.use(function (req, res, next) {
 router.post('/', function (req, res) {
 	try {
 		var promise = promise = postService.getAllPosts();
-		/* if (req.decoded.isAdmin) {
-			promise = postService.getAllPosts();
-		} else {
-			promise = promise.rejectUnauthorized();
-		} */
+
 		promise.then(function (data) {
 			// Do something (if required) with the data, then send it to the client
 			res.status(200).send(data);
@@ -105,9 +101,8 @@ router.post('/', function (req, res) {
  */
 router.get('/post', function (req, res) {
 	// This route needs to be ordered before /:postId since express will match '/post' to be path param as well
-	var promise;
 	try {
-		promise = postService.getPost(req.query.postId);
+		var promise = postService.getPost(req.query.postId);
 
 		promise.then(function (data) {
 			// Do something (if required) with the data, then send it to the client
