@@ -1,16 +1,14 @@
 'use strict';
 
 var express = require('express');
-var postsEndpoint = require('./posts');
-var repoEndpoint = require('./repo/repo');
+var plantsEndPoint = require('./plants');
 
 var router = express.Router();
 
 //---------------------------------------------------------------
 // API Route specification
 //---------------------------------------------------------------
-router.use('/posts', postsEndpoint);
-router.use('/repo', repoEndpoint);
+router.use('/plants', plantsEndPoint);
 
 //---------------------------------------------------------------
 // Swagger API Specification - swagger-jsdoc
@@ -38,21 +36,15 @@ var options = {
 		],
 		basePath: '/api',
 		tags: [{
-			name: 'Posts',
-			description: 'Get details of posts'
-		}, {
-			name: 'Repo',
-			description: 'Get details about repositories'
-		}, {
-			name: 'Images',
-			description: 'Get details about images'
+			name: 'Plants',
+			description: 'Get details of plants'
 		}],
 		externalDocs: {
 			description: 'More information',
 			url: ''
 		}
 	},
-	apis: ['routes/api.js', 'routes/posts.js', 'routes/repo/repo.js', 'routes/repo/images.js'],
+	apis: ['routes/api.js', 'routes/plants.js'],
 };
 
 var swaggerSpec = swaggerJSDoc(options);
