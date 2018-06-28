@@ -1,6 +1,5 @@
 'use strict';
 var Plant = require('../models/plant');
-var config = require('../config');
 
 module.exports = {
     getAllPlants: function () {
@@ -13,6 +12,14 @@ module.exports = {
     },
     getPlant: function (plantID) {
         const record = Plant.find({ plantID: plantID }, function (err, doc) {
+            if (!err) {
+                return doc;
+            }
+        });
+        return record;
+    },
+    getPlantByUserID: function (userID) {
+        const record = Plant.find({ userID: userID }, function (err, doc) {
             if (!err) {
                 return doc;
             }

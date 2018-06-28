@@ -1,6 +1,5 @@
 'use strict';
 var Inverter = require('../models/inverter');
-var config = require('../config');
 
 module.exports = {
     getAllInverters: function () {
