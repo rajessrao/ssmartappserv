@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-module.exports = mongoose.model('EnergyMeterLog', new Schema({
+module.exports = mongoose.model('EnergyMeter', new Schema({
     energyMeterID: String,
     logID: String,
-    Time: Date,
+    Time: String,
     WattsTotal: Number,
     WattsRPhase: Number,
     WattsYPhase: Number,

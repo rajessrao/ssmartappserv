@@ -1,26 +1,25 @@
 'use strict';
-var Plant = require('../models/plant');
-var config = require('../config');
+var EnergyMeter = require('../models/energyMeter');
 
 module.exports = {
-    getAllPlants: function () {
-        const records = Plant.find({}, function (err, docs) {
+    getAllEnergyMeters: function () {
+        const records = EnergyMeter.find({}, function (err, docs) {
             if (!err) {
                 return docs;
             }
         });
         return records;
     },
-    getPlant: function (plantID) {
-        const record = Plant.find({ plantID: plantID }, function (err, doc) {
+    getEnergyMeter: function (energyMeterID) {
+        const record = EnergyMeter.find({ energyMeterID: energyMeterID }, function (err, doc) {
             if (!err) {
                 return doc;
             }
         });
         return record;
     },
-    newPlant: function (newPlant) {
-        const record = new Plant(newPlant);
+    newEnergyMeter: function (newEnergyMeter) {
+        const record = new EnergyMeter(newEnergyMeter);
         record.save(function (err, doc) {
             if (!err) {
                 record._id = doc._id;

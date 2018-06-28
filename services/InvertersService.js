@@ -1,26 +1,26 @@
 'use strict';
-var Plant = require('../models/plant');
+var Inverter = require('../models/inverter');
 var config = require('../config');
 
 module.exports = {
-    getAllPlants: function () {
-        const records = Plant.find({}, function (err, docs) {
+    getAllInverters: function () {
+        const records = Inverter.find({}, function (err, docs) {
             if (!err) {
                 return docs;
             }
         });
         return records;
     },
-    getPlant: function (plantID) {
-        const record = Plant.find({ plantID: plantID }, function (err, doc) {
+    getInverter: function (inverterID) {
+        const record = Inverter.find({ inverterID: inverterID }, function (err, doc) {
             if (!err) {
                 return doc;
             }
         });
         return record;
     },
-    newPlant: function (newPlant) {
-        const record = new Plant(newPlant);
+    newInverter: function (newInverter) {
+        const record = new Inverter(newInverter);
         record.save(function (err, doc) {
             if (!err) {
                 record._id = doc._id;

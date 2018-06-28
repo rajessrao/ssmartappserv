@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-module.exports = mongoose.model('InverterLog', new Schema({
+module.exports = mongoose.model('Inverter', new Schema({
     inverterID: String,
     SID: String,
-    Time: Date,
+    Time: String,
     IphA: Number,
     IphB: Number,
     IphC: Number,
