@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = mongoose.model('EnergyMeterLog', new Schema({
+    energyMeterID: String,
     logID: String,
     Time: Date,
     WattsTotal: Number,

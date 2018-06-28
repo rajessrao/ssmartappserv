@@ -18,5 +18,14 @@ module.exports = {
             }
         });
         return plant;
+    },
+    newPlant: function (newPlant) {
+        const plantRec = new Plant(newPlant);
+        plantRec.save(function (err, plant) {
+            if (!err) {
+                plantRec._id = plant._id;
+            }
+        });
+        return plantRec;
     }
 }

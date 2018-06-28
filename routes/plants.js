@@ -119,4 +119,70 @@ router.post('/plant', function (req, res) {
 	}
 });
 
+/**
+ * @swagger
+ * /plants/newPlant:
+ *   post:
+ *     summary: Add new plant details
+ *     description: Returns details of a new plant
+ *     tags:
+ *       - Plants
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: plantID
+ *         description: ID of the plant
+ *         in: body
+ *         required: true
+ *         type: string
+ *       - name: inverterType
+ *         description: Type of the inverter
+ *         in: body
+ *         required: true
+ *         type: string
+ *       - name: capacity
+ *         description: capacity of the plant
+ *         in: body
+ *         required: true
+ *         type: string
+ *       - name: inverterID
+ *         description: inverterID of the plant
+ *         in: body
+ *         required: true
+ *         type: string
+ *         example: 1
+ *       - name: energyMeterID
+ *         description: energyMeterID of the plant
+ *         in: body
+ *         required: true
+ *         type: string
+ *         example: 1
+ *       - name: userID
+ *         description: userID of the plant
+ *         in: body
+ *         required: true
+ *         type: string
+ *         example: 1
+ *     responses:
+ *       200:
+ *         description: Successful
+ *       500:
+ *         description: Server Error
+ */
+router.post('/newPlant', function (req, res) {
+	// This route needs to be ordered before /:postId since express will match '/post' to be path param as well
+	try {
+		var promise = plantService.newPlant(req.body);
+
+		if (promise._id) {
+			res.status(200).send({ plant: promise, message: 'Plant added successfully.' });
+		} else {
+			res.status(500).send(error);
+		}
+	} catch (e) {
+		// Use a good logging framework for logging to file
+		res.status(500).send(e);
+	}
+});
+
 module.exports = router;

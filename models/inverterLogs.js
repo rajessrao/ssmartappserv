@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = mongoose.model('InverterLog', new Schema({
+    inverterID: String,
     SID: String,
     Time: Date,
     IphA: Number,
