@@ -4,6 +4,7 @@ var express = require('express');
 var plantsEndPoint = require('./plants');
 var invertersEndPoint = require('./inverters');
 var energyMetersEndPoint = require('./energyMeters');
+var dashboardsEndPoind = require('./dashboards');
 
 var router = express.Router();
 
@@ -13,6 +14,7 @@ var router = express.Router();
 router.use('/plants', plantsEndPoint);
 router.use('/inverters', invertersEndPoint);
 router.use('/energyMeters', energyMetersEndPoint);
+router.use('/dashboards', dashboardsEndPoind);
 
 //---------------------------------------------------------------
 // Swagger API Specification - swagger-jsdoc
@@ -50,13 +52,22 @@ var options = {
 		{
 			name: 'EnergyMeters',
 			description: 'Get details of energy meters'
+		},
+		{
+			name: 'Dashboards',
+			description: 'Get details of dashboards'
 		}],
 		externalDocs: {
 			description: 'More information',
 			url: ''
 		}
 	},
-	apis: ['routes/api.js', 'routes/plants.js', 'routes/inverters.js', 'routes/energyMeters.js'],
+	apis: ['routes/api.js',
+		'routes/plants.js',
+		'routes/inverters.js',
+		'routes/energyMeters.js',
+		'routes/dashboards.js'
+	],
 };
 
 var swaggerSpec = swaggerJSDoc(options);
