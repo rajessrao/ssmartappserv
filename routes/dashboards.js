@@ -6,6 +6,7 @@ var config = require('../config');
 var plantService = require('../services/PlantsService');
 var inverterService = require('../services/InvertersService');
 var energyMeterService = require('../services/EnergyMetersService');
+var dashboardService = require('../services/DashboardsService');
 var log = require('../utils/Logger');
 
 let router = express.Router();
@@ -66,7 +67,8 @@ router.post('/user', function (req, res) {
                 results.inverter = data[0];
                 energyMeterService.getEnergyMeter(results.plant.energyMeterID).then(function (data) {
                     results.energyMeter = data[0];
-                    res.status(200).send(results);
+                    var aggResults = dashboardService.getUserDashboardData(results);
+                    res.status(200).send({ results: aggResults });
                 });
             });
         }).catch(function (error) {
