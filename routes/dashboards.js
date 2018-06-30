@@ -61,7 +61,7 @@ router.use(function (req, res, next) {
 router.post('/user', function (req, res) {
     try {
         var results = {};
-        plantService.getPlantByUserID(req.decoded.user._id).then(function (data) {
+        plantService.getPlantByUserID(req.decoded.user.email).then(function (data) {
             results.plant = data[0];
             inverterService.getInverter(results.plant.inverterID).then(function (data) {
                 results.inverter = data[0];

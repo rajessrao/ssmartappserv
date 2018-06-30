@@ -18,8 +18,8 @@ module.exports = {
         });
         return record;
     },
-    getPlantByUserID: function (userID) {
-        const record = Plant.find({ userID: userID }, function (err, doc) {
+    getPlantByUserID: function (email) {
+        const record = Plant.find({ userID: email }, function (err, doc) {
             if (!err) {
                 return doc;
             }
